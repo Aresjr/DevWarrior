@@ -1,2 +1,2 @@
-# DevWarrior
-Fun and gamified portfolio platform for IT professionals
+# Warrior.Dev
+Gamified portfolio platform for IT professionals
