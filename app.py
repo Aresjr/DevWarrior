@@ -1,6 +1,8 @@
 import os
 
 from flask import Flask
+from flask_babel import Babel
+
 from extensions import db, admin
 from routes import main
 
@@ -15,9 +17,12 @@ def create_app():
 
     db.init_app(app)
     admin.init_app(app)
+    babel = Babel(app)
 
     return app
 
 if __name__ == '__main__':
     app = create_app()
+    app.app_context()
+
     app.run()

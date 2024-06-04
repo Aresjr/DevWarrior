@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 from models import User, db
 
 main = Blueprint('main', __name__)
@@ -6,7 +6,7 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return 'Index Page'
+    return render_template('index.html')
 
 @main.route('/@<username>')
 def hello(username):
