@@ -3,7 +3,8 @@ import os
 from flask import Flask
 from flask_babel import Babel
 
-from extensions import db, admin
+from admin import admin
+from models import db
 from routes import main
 
 
