@@ -75,13 +75,14 @@ def create_skills():
     aws_sns = Skill(name='AWS SNS', category=dev_ops)
     aws_ses = Skill(name='AWS SES', category=dev_ops)
     aws_dynamodb = Skill(name='AWS DynamoDB', category=dev_ops)
+    ci_cd = Skill(name='CI/CD', category=dev_ops)
 
     db.session.add_all([
         java, python, javascript, typescript, csharp, ruby, go, swift, kotlin, scala, dart, php, rust, sql,
         mysql, oracle, mongodb, postgresql, redis, junit, cucumber, selenium, cypress, unit_test, component_test,
         integration_test, flask, spring, spring_boot, spring_mvc, angular, react, nodejs, flutter, django, fastapi,
         android, ios, dotnet, pandas, numpy, scikit_learn, tensorflow, spark, jupyter, aws, azure, gcp, google_cloud,
-        docker, kubernetes, aws_ecs, aws_lambda, aws_s3, aws_sqs, aws_sns, aws_ses, aws_dynamodb
+        docker, kubernetes, aws_ecs, aws_lambda, aws_s3, aws_sqs, aws_sns, aws_ses, aws_dynamodb, ci_cd
     ])
     db.session.commit()
 
