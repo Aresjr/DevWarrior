@@ -19,6 +19,6 @@ def create_app():
     return wapp
 
 if __name__ == '__main__':
-    wapp = create_app()
-    wapp.app_context()
-    wapp.run()
+    app = create_app()
+    app.app_context()
+    app.run()

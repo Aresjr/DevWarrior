@@ -108,6 +108,7 @@ def create_classes():
     necromancer = Class(name='Necromancer')
     gunfighter = Class(name='Gunfighter')
     hunter = Class(name='Hunter')
+
     db.session.add_all([
         warrior, fighter, paladin, wizard, mage, archer, druid, barbarian, berserker, rogue, cleric, ranger, bard, monk,
         knight, alchemist, healer, sorcerer, necromancer, gunfighter, hunter
