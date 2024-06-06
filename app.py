@@ -7,18 +7,18 @@ from database import db
 from routes import main
 
 def create_app():
-    app = Flask(__name__)
-    app.testing = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbw.sqlite3'
-    app.config['SECRET_KEY'] = os.environ.get('DBW_KEY')
+    wapp = Flask(__name__)
+    wapp.testing = True
+    wapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbw.sqlite3'
+    wapp.config['SECRET_KEY'] = os.environ.get('DBW_KEY')
 
-    app.register_blueprint(main)
-    db.init_app(app)
-    admin.init_app(app)
-    babel = Babel(app)
-    return app
+    wapp.register_blueprint(main)
+    db.init_app(wapp)
+    admin.init_app(wapp)
+    babel = Babel(wapp)
+    return wapp
 
 if __name__ == '__main__':
-    app = create_app()
-    app.app_context()
-    app.run()
+    wapp = create_app()
+    wapp.app_context()
+    wapp.run()
