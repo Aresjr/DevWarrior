@@ -1,9 +1,5 @@
 import pytest
 from app import create_app
-from database import db
-from initializr import initialize
-from models.skills import Skill, SkillCategory
-from models.user import Class, Title
 
 
 @pytest.fixture()
