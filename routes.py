@@ -1,9 +1,9 @@
 from flask import Blueprint, render_template
 from initializr import initialize
-from models import User, db
+from database import db
+from models.user import User
 
 main = Blueprint('main', __name__)
-
 
 @main.route('/')
 def index():
@@ -12,7 +12,9 @@ def index():
 @main.route('/@<username>')
 def hello(username):
     user = db.session.query(User).filter_by(username=username).first()
-    return user.name
+    if not user:
+        return 'User not found'
+    return user.full_title()
 
 @main.route('/create_db')
 def create_db():

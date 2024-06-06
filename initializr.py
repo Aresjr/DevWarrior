@@ -1,16 +1,15 @@
-from models import db, SkillCategory, Skill, Class
-
+from database import db
+from models.skills import Skill, SkillCategory
+from models.user import Class, Title
 
 def create_skills():
     coding = SkillCategory(name='Coding')
     database = SkillCategory(name='Database')
-    data_science = SkillCategory(name='Data Science')
+    data_science = SkillCategory(name='Data Science & Big Data')
     testing = SkillCategory(name='Testing')
     framework = SkillCategory(name='Framework')
     cloud = SkillCategory(name='Cloud')
-
-    db.session.add_all([coding, database, data_science, testing, framework])
-    db.session.commit()
+    dev_ops = SkillCategory(name='DevOps')
 
     java = Skill(name='Java', category=coding)
     python = Skill(name='Python', category=coding)
@@ -37,6 +36,9 @@ def create_skills():
     cucumber = Skill(name='Cucumber', category=testing)
     selenium = Skill(name='Selenium', category=testing)
     cypress = Skill(name='Cypress', category=testing)
+    unit_test = Skill(name='Unit Test', category=testing)
+    component_test = Skill(name='Component Test', category=testing)
+    integration_test = Skill(name='Integration Test', category=testing)
 
     flask = Skill(name='Flask', category=framework)
     spring = Skill(name='Spring', category=framework)
@@ -56,16 +58,30 @@ def create_skills():
     numpy = Skill(name='Numpy', category=data_science)
     scikit_learn = Skill(name='Scikit-Learn', category=data_science)
     tensorflow = Skill(name='TensorFlow', category=data_science)
+    spark = Skill(name='Spark', category=data_science)
+    jupyter = Skill(name='Jupyter', category=data_science)
 
     aws = Skill(name='AWS', category=cloud)
     azure = Skill(name='Azure', category=cloud)
     gcp = Skill(name='GCP', category=cloud)
+    google_cloud = Skill(name='Google Cloud', category=cloud)
+
+    docker = Skill(name='Docker', category=dev_ops)
+    kubernetes = Skill(name='Kubernetes', category=dev_ops)
+    aws_ecs = Skill(name='AWS ECS', category=dev_ops)
+    aws_lambda = Skill(name='AWS Lambda', category=dev_ops)
+    aws_s3 = Skill(name='AWS S3', category=dev_ops)
+    aws_sqs = Skill(name='AWS SQS', category=dev_ops)
+    aws_sns = Skill(name='AWS SNS', category=dev_ops)
+    aws_ses = Skill(name='AWS SES', category=dev_ops)
+    aws_dynamodb = Skill(name='AWS DynamoDB', category=dev_ops)
 
     db.session.add_all([
         java, python, javascript, typescript, csharp, ruby, go, swift, kotlin, scala, dart, php, rust, sql,
-        mysql, oracle, mongodb, postgresql, redis, junit, cucumber, selenium, cypress,
-        flask, spring, spring_boot, spring_mvc, angular, react, nodejs, flutter, django, fastapi, android, ios, dotnet,
-        pandas, numpy, scikit_learn, tensorflow, aws, azure, gcp
+        mysql, oracle, mongodb, postgresql, redis, junit, cucumber, selenium, cypress, unit_test, component_test,
+        integration_test, flask, spring, spring_boot, spring_mvc, angular, react, nodejs, flutter, django, fastapi,
+        android, ios, dotnet, pandas, numpy, scikit_learn, tensorflow, spark, jupyter, aws, azure, gcp, google_cloud,
+        docker, kubernetes, aws_ecs, aws_lambda, aws_s3, aws_sqs, aws_sns, aws_ses, aws_dynamodb
     ])
     db.session.commit()
 
@@ -97,7 +113,21 @@ def create_classes():
     ])
     db.session.commit()
 
+def create_titles():
+    backend_engineer = Title(name='Backend Engineer')
+    frontend_engineer = Title(name='Frontend Engineer')
+    fullstack_engineer = Title(name='Fullstack Engineer')
+    tester = Title(name='Tester')
+    qa = Title(name='QA')
+    software_architect = Title(name='Software Architect')
+    software_engineer = Title(name='Software Engineer')
+    tech_lead = Title(name='Tech Lead')
+
+    db.session.add_all([backend_engineer, frontend_engineer, fullstack_engineer, tester, qa, software_architect,
+                        software_engineer, tech_lead])
+    db.session.commit()
 
 def initialize():
     create_skills()
     create_classes()
+    create_titles()

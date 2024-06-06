@@ -1,13 +1,15 @@
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from models import db, User, Skill, SkillCategory, UserSkill, Class
+from database import db
+from models.skills import UserSkill, Skill, SkillCategory
+from models.user import User, Class, Title
 
 admin = Admin()
 
 class UserView(ModelView):
     can_delete = False
-    form_columns = ['name', 'username', 'password', 'email', 'class_',  'skills']
-    column_list = ['name', 'username', 'email', 'class_', 'skills']
+    form_columns = ['name', 'username', 'password', 'email', 'class_',  'skills', 'title']
+    column_list = ['name', 'username', 'email', 'class_', 'skills', 'title', 'level']
 
 class ClassView(ModelView):
     can_delete = True
@@ -28,9 +30,11 @@ class SkillCategoryView(ModelView):
     form_columns = ['name']
     column_list = ['name', 'skills']
 
-admin.add_view(UserView(User, db.session))
-admin.add_view(ClassView(Class, db.session))
-admin.add_view(UserSkillView(UserSkill, db.session))
-admin.add_view(SkillView(Skill, db.session))
-admin.add_view(SkillCategoryView(SkillCategory, db.session))
+class TitleView(ModelView):
+    can_delete = True
+    form_columns = ['name']
+    column_list = ['name', 'users']
 
+admin.add_views(UserView(User, db.session), ClassView(Class, db.session), UserSkillView(UserSkill, db.session),
+                SkillView(Skill, db.session), SkillCategoryView(SkillCategory, db.session),
+                TitleView(Title, db.session))
