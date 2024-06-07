@@ -6,10 +6,10 @@ from admin import admin
 from database import db
 from routes import main
 
-def create_app():
+def create_app(db_path='sqlite:///dbw.sqlite3'):
     wapp = Flask(__name__)
     wapp.testing = True
-    wapp.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbw.sqlite3'
+    wapp.config['SQLALCHEMY_DATABASE_URI'] = db_path
     wapp.config['SECRET_KEY'] = os.environ.get('DBW_KEY')
 
     wapp.register_blueprint(main)

@@ -4,7 +4,7 @@ from app import create_app
 
 @pytest.fixture()
 def app():
-    app = create_app()
+    app = create_app('sqlite:///dbw_test.sqlite3')
     app.config.update({
         "TESTING": True,
     })
