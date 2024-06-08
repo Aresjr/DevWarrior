@@ -1,4 +1,4 @@
-from app.models import Class, Title, User
+from app.models.user import User, Class, Title
 
 
 def test_user_full_title():
