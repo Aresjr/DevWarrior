@@ -1,6 +1,6 @@
-from database import db
-from models.skills import Skill, SkillCategory
-from models.user import Class, Title
+from app.database import db
+from .models.skills import Skill, SkillCategory
+from .models.user import Class, Title
 
 def create_skills():
     coding = SkillCategory(name='Coding')
