@@ -2,9 +2,9 @@ import os
 
 from flask import Flask
 from flask_babel import Babel
-from admin import admin
-from database import db
-from routes import main
+from .admin import admin
+from .database import db
+from .routes import main
 
 def create_app(db_path='sqlite:///dbw.sqlite3'):
     wapp = Flask(__name__)

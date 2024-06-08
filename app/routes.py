@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template
-from database import db
-from models.user import User
+from app.database import db
+from .models.user import User
 
 main = Blueprint('main', __name__)
 

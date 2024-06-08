@@ -1,8 +1,9 @@
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from database import db
-from models.skills import UserSkill, Skill, SkillCategory
-from models.user import User, Class, Title
+
+from .models.skills import UserSkill, Skill, SkillCategory
+from .models.user import User, Class, Title
+from .database import db
 
 admin = Admin()
 

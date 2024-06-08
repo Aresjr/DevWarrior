@@ -1,7 +1,7 @@
-from database import db
-from initializr import initialize
-from models.skills import SkillCategory, Skill
-from models.user import Class, Title
+from app.database import db
+from app.initializr import initialize
+from app.models import SkillCategory, Skill
+from app.models import Class, Title
 
 
 def test_initialize_skill_category(app):
